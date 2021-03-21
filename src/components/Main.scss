@@ -1,0 +1,102 @@
+body {
+  background-color: rgb(240, 240, 240);
+}
+
+.wrapper {
+  .video-feeds {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    iframe,
+    video {
+      flex: 1;
+      height: 33vh;
+      //   min-width: 600px;
+      // height: 300px;
+      // min-width: 200px;
+    }
+  }
+
+  .controls {
+    display: flex;
+    width: fit-content;
+    margin: 2rem auto;
+    border-radius: 5px;
+    padding: 1rem;
+    background-color: #fff;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: 2px 2px 20px 5px #eee;
+
+    .call,
+    .input-wrapper {
+      display: flex;
+      margin: 0.5rem 2rem;
+    }
+
+    .input-wrapper {
+      display: flex;
+      align-items: center;
+      background-color: #eee;
+      box-shadow: none;
+      border-radius: 5px;
+      height: 2.5rem;
+
+      //   box-shadow: 2px 2px 20px 5px #eee;
+      #callInput {
+        border-radius: 5px;
+        border: none;
+        margin: 0 0.2rem;
+        box-shadow: none;
+        background-color: transparent;
+        :focus {
+          outline: none;
+          box-shadow: none;
+        }
+      }
+      #copyButton {
+        margin: 0;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        box-shadow: none;
+        background-color: rgb(201, 201, 201);
+      }
+    }
+    button {
+      display: flex;
+      cursor: pointer;
+      border: none;
+      background-color: rgb(245, 245, 245);
+      //   background-image: linear-gradient(
+      //     90deg,
+      //     #f06543 20%,
+      //     #fff 70%,
+      //     #90f3ff
+      //   ) !important;
+      background-color: #eee;
+      border: 2px solid black;
+      //   background-image: linear-gradient(315deg, #ffac81 0%, #ff928b 74%);
+      align-items: center;
+      height: 2.5rem;
+
+      //   box-shadow: 2px 2px 20px 5px #eee;
+      padding: 0.5rem;
+      margin: 0.2rem;
+      border-radius: 5px;
+      width: fit-content;
+      max-width: 300px;
+      span {
+        margin-left: 0.4rem;
+        // color: #fff;
+      }
+      img,
+      svg {
+        height: 100%;
+      }
+      svg {
+        width: auto;
+      }
+    }
+  }
+}

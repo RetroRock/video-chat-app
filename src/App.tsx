@@ -1,24 +1,32 @@
+import firebase from 'firebase';
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Main from './components/Main';
+import { firebaseConfig, servers } from './config';
 
+interface PCCONTEXTInterface {
+  pc: RTCPeerConnection;
+  localStream: MediaStream | null;
+  remoteStream: MediaStream | null;
+  firestore: firebase.firestore.Firestore;
+}
+export const PCCONTEXT = React.createContext<PCCONTEXTInterface>(undefined as any);
 function App() {
+  const pc = new RTCPeerConnection(servers);
+  let localStream = null;
+  let remoteStream = null;
+
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  }
+
+  const firestore = firebase.firestore();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <PCCONTEXT.Provider value={{ pc, localStream, remoteStream, firestore }}>
+        <Main />
+      </PCCONTEXT.Provider>
     </div>
   );
 }
