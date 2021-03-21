@@ -2,7 +2,8 @@ import firebase from 'firebase';
 import React from 'react';
 import './App.css';
 import Main from './components/Main';
-import { firebaseConfig, servers } from './config';
+import { servers } from './config';
+import { firebaseConfig } from './firebaseconfig'
 
 interface PCCONTEXTInterface {
   pc: RTCPeerConnection;
@@ -32,3 +33,5 @@ function App() {
 }
 
 export default App;
+
+

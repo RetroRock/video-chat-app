@@ -10,19 +10,24 @@ import WebcamIcon from '../icons/WebcamIcon';
 
 function Main() {
     let { pc, localStream, remoteStream, firestore } = React.useContext(PCCONTEXT);
-
     const webcamVideoRef = React.useRef<HTMLVideoElement>(null);
     const remoteVideoRef = React.useRef<HTMLVideoElement>(null);
     const callInputRef = React.useRef<HTMLInputElement>(null);
 
     const [callID, setCallID] = useState<string | null>(null);
 
-    useEffect(() => { getWebcamAccess() }, [])
+    useEffect(() => {
+        const run = async () => {
+            await getWebcamAccess();
+            new URLSearchParams(window.location.search).get("callId") && await answerCall();
+        };
+        run();
+    }, [])
 
     // 1. Setup media sources
     async function getWebcamAccess() {
         console.log("hell")
-        localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+        localStream = await navigator.mediaDevices.getUserMedia({ video: true });
         remoteStream = new MediaStream();
 
         // Push tracks from local stream to peer connection
@@ -47,7 +52,7 @@ function Main() {
         const callDoc = firestore.collection('calls').doc();
         const offerCandidates = callDoc.collection('offerCadidates');
         const answerCandidates = callDoc.collection('answerCandidates');
-
+        console.log(callDoc);
         (callInputRef.current as HTMLInputElement).value = callDoc.id;
         setCallID(callDoc.id);
 
