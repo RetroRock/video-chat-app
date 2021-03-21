@@ -66,29 +66,19 @@ body {
     button {
       display: flex;
       cursor: pointer;
-      border: none;
-      background-color: rgb(245, 245, 245);
-      //   background-image: linear-gradient(
-      //     90deg,
-      //     #f06543 20%,
-      //     #fff 70%,
-      //     #90f3ff
-      //   ) !important;
       background-color: #eee;
-      border: 2px solid black;
-      //   background-image: linear-gradient(315deg, #ffac81 0%, #ff928b 74%);
+      border: 2px solid #eee;
       align-items: center;
       height: 2.5rem;
 
-      //   box-shadow: 2px 2px 20px 5px #eee;
       padding: 0.5rem;
       margin: 0.2rem;
       border-radius: 5px;
       width: fit-content;
       max-width: 300px;
+
       span {
         margin-left: 0.4rem;
-        // color: #fff;
       }
       img,
       svg {
@@ -98,5 +88,36 @@ body {
         width: auto;
       }
     }
+  }
+}
+
+// button:hover {
+//   transition-property: background-color, color;
+//   transition-duration: 0.2s;
+//   background-color: #000 !important;
+//   color: #fff;
+// }
+
+button:focus {
+  outline: none;
+  border: 2px solid #000 !important;
+}
+
+.click {
+  animation: clickAnimation 0.25s linear;
+  animation-delay: 0.1s;
+}
+@keyframes clickAnimation {
+  0% {
+    background-color: rgb(226, 226, 226);
+    color: #000;
+  }
+  50% {
+    background-color: #000;
+    color: #fff;
+  }
+  100% {
+    background-color: rgb(226, 226, 226);
+    color: #000;
   }
 }

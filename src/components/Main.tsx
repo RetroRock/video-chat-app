@@ -22,6 +22,25 @@ function Main() {
             new URLSearchParams(window.location.search).get("callId") && await answerCall();
         };
         run();
+        const buttons = document.getElementsByTagName("button");
+        console.log(buttons)
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener("click", () => {
+                buttons[i].classList.add("click");
+            })
+            buttons[i].addEventListener("mouseup", () => {
+                buttons[i].classList.remove("click");
+            })
+        }
+
+        return () => {
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].removeEventListener("click", () => null);
+                buttons[i].removeEventListener("mouseup", () => null);
+            }
+        }
+        //     console.debug(button)
+        // }
     }, [])
 
     // 1. Setup media sources
@@ -149,10 +168,7 @@ function Main() {
         copyText.setSelectionRange(0, 99999); // For mobile devices 
 
         document.execCommand("copy");
-
-        alert("Copied the text: " + copyText.value);
     }
-
 
     return (
         <div className="wrapper">
@@ -181,3 +197,4 @@ function Main() {
 }
 
 export default Main;
+
