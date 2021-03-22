@@ -46,7 +46,7 @@ function Main() {
     // 1. Setup media sources
     async function getWebcamAccess() {
         console.log("hell")
-        localStream = await navigator.mediaDevices.getUserMedia({ video: true });
+        localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
         remoteStream = new MediaStream();
 
         // Push tracks from local stream to peer connection

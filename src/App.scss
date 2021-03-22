@@ -1,0 +1,21 @@
+#whenSignedIn,
+#whenSignedOut {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#whenSignedOut {
+  height: 100vh;
+  background-color: #a40606;
+  background-size: 200%;
+  background-image: linear-gradient(45deg, #a40606 0%, #d98324 74%);
+  animation: signInBackground 5s ease-in-out alternate infinite;
+}
+
+#signInBtn {
+  box-shadow: 2px 2px 100px 1px #8f8f8f;
+  //   background-color: red;
+}

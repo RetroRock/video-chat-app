@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  height: 100vh;
+  background-color: #a40606;
+  background-size: 200%;
+  background-image: linear-gradient(315deg, #a40606 0%, #d98324 74%);
+  animation: signInBackground 30s ease-in-out alternate infinite;
+}
+@keyframes signInBackground {
+  0% {
+    background-position: left top;
+  }
+
+  100% {
+    background-position: bottom right;
+  }
+}
+
+button {
+  display: flex;
+  cursor: pointer;
+  background-color: #eee;
+  border: 2px solid #eee;
+  align-items: center;
+  height: 2.5rem;
+
+  padding: 0.5rem;
+  margin: 0.2rem;
+  border-radius: 5px;
+  width: fit-content;
+  max-width: 300px;
+
+  span {
+    margin-left: 0.4rem;
+  }
+  img,
+  svg {
+    height: 100%;
+  }
+  svg {
+    width: auto;
+  }
+}
+
+button:focus {
+  outline: none;
+  border: 2px solid #000 !important;
+}
+
+.click {
+  animation: clickAnimation 0.25s linear;
+  animation-delay: 0.1s;
+}
+@keyframes clickAnimation {
+  0% {
+    background-color: rgb(226, 226, 226);
+    color: #000;
+  }
+  50% {
+    background-color: #000;
+    color: #fff;
+  }
+  100% {
+    background-color: rgb(226, 226, 226);
+    color: #000;
+  }
+}
